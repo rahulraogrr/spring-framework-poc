@@ -1,0 +1,41 @@
+##Spring Properties
+spring:
+  liquibase: ##Liquibase Properties
+    enabled: false
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    user: postgres
+    password:
+    drop-first: true
+    database-change-log-lock-table: DATABASECHANGELOGLOCK
+    database-change-log-table: DATABASECHANGELOG
+    test-rollback-on-update: false
+  datasource: ##Datasource Properties
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/springpoc?createDatabaseIfNotExist=true
+    username: postgres
+    password:
+  jpa: ##JPA Properties
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp.use_jdbc_metadata_defaults: false
+        format_sql: true
+        generate_statistics: false
+    open-in-view: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+##Logging Properties
+logging:
+  level:
+    liquibase: info
+    sql: info
+    root: info
+    web: info
+
+##Server Configuration
+server:
+  port: 8080
