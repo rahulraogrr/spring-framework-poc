@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,8 +16,11 @@ import javax.validation.constraints.Size;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class D002002 {
-    @Id
+public class D002002 implements Serializable {
+
+	private static final long serialVersionUID = -1865568147795614392L;
+
+	@Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

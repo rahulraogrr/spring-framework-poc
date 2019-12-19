@@ -2,11 +2,15 @@ package com.poc.framework.exceptions;
 
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 
+@SuppressWarnings("serial")
 @Getter
-public class InvalidFieldException extends RuntimeException {
-    private final transient Object id;
+public class InvalidFieldException extends RuntimeException implements Serializable {
+	private static final long serialVersionUID = 1072496018977194715L;
+
+	private final transient Object id;
     private final ZonedDateTime zonedDateTime;
 
     public InvalidFieldException(final Object id,
@@ -16,4 +20,5 @@ public class InvalidFieldException extends RuntimeException {
         this.id=id;
         this.zonedDateTime=zonedDateTime;
     }
+    
 }
