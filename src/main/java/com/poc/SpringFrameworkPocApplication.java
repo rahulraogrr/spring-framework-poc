@@ -26,7 +26,7 @@ public class SpringFrameworkPocApplication {
 	public Docket swaggerConfiguration(){
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.paths(PathSelectors.ant("/roles/**"))
+				.paths(PathSelectors.ant("/*/**"))
 				.apis(RequestHandlerSelectors.basePackage("com.rahul.demo"))
 				.build()
 				.apiInfo(apiInfo());
@@ -40,7 +40,7 @@ public class SpringFrameworkPocApplication {
 				"https://github.com/rahulraogrr/spring-framework-poc/blob/master/CODE_OF_CONDUCT.md",
 				new springfox.documentation.service.Contact(
 						"Rahul Rao Gonda",
-						"https://github.com/rahulraogrr",
+						"https://rahulraogrr.github.io/spring-framework-poc/",
 						"rahulrao.grr@gmail.com"
 						),
 				"MIT License",
