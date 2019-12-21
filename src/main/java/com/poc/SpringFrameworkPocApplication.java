@@ -53,7 +53,8 @@ implements InitializingBean{
 		String serverPort = environment.getProperty("server.port");
 		String contextPath = environment.getProperty("server.servlet.context-path");
 		if (StringUtils.isBlank(contextPath)) {
-			contextPath = "/";        }
+			contextPath = "/";
+		}
 		String hostAddress = "localhost";
 		try {
 			hostAddress = InetAddress.getLocalHost().getHostAddress();
