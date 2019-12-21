@@ -30,11 +30,11 @@ import java.util.Collections;
 @CrossOrigin(origins = "*")
 public class SpringFrameworkPocApplication
 implements InitializingBean{
-	
+
 	private static final Logger log = LoggerFactory.getLogger(SpringFrameworkPocApplication.class);
-	
+
 	private final Environment environment;
-	
+
 	public SpringFrameworkPocApplication(Environment environment) {
 		this.environment=environment;
 	}
@@ -44,56 +44,56 @@ implements InitializingBean{
 		Environment environment = app.run(args).getEnvironment();
 		logApplicationStartup(environment);
 	}
-	
+
 	private static void logApplicationStartup(Environment environment) {
-        String protocol = "http";
-        if (environment.getProperty("server.ssl.key-store") != null) {
-            protocol = "https";
-        }
-        String serverPort = environment.getProperty("server.port");
-        String contextPath = environment.getProperty("server.servlet.context-path");
-        if (StringUtils.isBlank(contextPath)) {
-            contextPath = "/";        }
-        String hostAddress = "localhost";
-        try {
-            hostAddress = InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            log.warn("The host name could not be determined, using `localhost` as fallback");
-        }
-        log.info("\n----------------------------------------------------------\n\t" +
-                "Application '{}' is running! Access URLs:\n\t" +
-                "Local: \t\t{}://localhost:{}{}\n\t" +
-                "External: \t{}://{}:{}{}\n\t" +
-                "Profile(s): \t{}\n----------------------------------------------------------",
-            environment.getProperty("spring.application.name"),
-            protocol,
-            serverPort,
-            contextPath,
-            protocol,
-            hostAddress,
-            serverPort,
-            contextPath,
-            environment.getActiveProfiles());
-    }
+		String protocol = "http";
+		if (environment.getProperty("server.ssl.key-store") != null) {
+			protocol = "https";
+		}
+		String serverPort = environment.getProperty("server.port");
+		String contextPath = environment.getProperty("server.servlet.context-path");
+		if (StringUtils.isBlank(contextPath)) {
+			contextPath = "/";        }
+		String hostAddress = "localhost";
+		try {
+			hostAddress = InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+			log.warn("The host name could not be determined, using `localhost` as fallback");
+		}
+		log.info("\n----------------------------------------------------------\n\t" +
+				"Application '{}' is running! Access URLs:\n\t" +
+				"Local: \t\t{}://localhost:{}{}\n\t" +
+				"External: \t{}://{}:{}{}\n\t" +
+				"Profile(s): \t{}\n----------------------------------------------------------",
+				environment.getProperty("spring.application.name"),
+				protocol,
+				serverPort,
+				contextPath,
+				protocol,
+				hostAddress,
+				serverPort,
+				contextPath,
+				environment.getActiveProfiles());
+	}
 
 	/**
-     * Initializes SpringFrameworkPocApplication.
-     * <p>
-     * Spring profiles can be configured with a program argument --spring.profiles.active=your-active-profile
-     * <p>
-     */
-    @Override
-    public void afterPropertiesSet(){
-        Collection<String> activeProfiles = Arrays.asList(environment.getActiveProfiles());
-        if (activeProfiles.contains(DemoConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(DemoConstants.SPRING_PROFILE_PRODUCTION)) {
-            log.error("You have misconfigured your application! It should not run " +
-                "with both the 'dev' and 'prod' profiles at the same time.");
-        }
-        if (activeProfiles.contains(DemoConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(DemoConstants.SPRING_PROFILE_CLOUD)) {
-            log.error("You have misconfigured your application! It should not " +
-                "run with both the 'dev' and 'cloud' profiles at the same time.");
-        }
-    }
+	 * Initializes SpringFrameworkPocApplication.
+	 * <p>
+	 * Spring profiles can be configured with a program argument --spring.profiles.active=your-active-profile
+	 * <p>
+	 */
+	@Override
+	public void afterPropertiesSet(){
+		Collection<String> activeProfiles = Arrays.asList(environment.getActiveProfiles());
+		if (activeProfiles.contains(DemoConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(DemoConstants.SPRING_PROFILE_PRODUCTION)) {
+			log.error("You have misconfigured your application! It should not run " +
+					"with both the 'dev' and 'prod' profiles at the same time.");
+		}
+		if (activeProfiles.contains(DemoConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(DemoConstants.SPRING_PROFILE_CLOUD)) {
+			log.error("You have misconfigured your application! It should not " +
+					"run with both the 'dev' and 'cloud' profiles at the same time.");
+		}
+	}
 
 	@Bean
 	public Docket swaggerConfiguration(){
