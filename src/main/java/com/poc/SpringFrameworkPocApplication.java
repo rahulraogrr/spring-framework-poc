@@ -1,5 +1,6 @@
 package com.poc;
 
+import com.poc.constants.ProfileConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,8 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.CrossOrigin;
-
-import com.poc.constants.DemoConstants;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -86,11 +85,11 @@ implements InitializingBean{
 	@Override
 	public void afterPropertiesSet(){
 		Collection<String> activeProfiles = Arrays.asList(environment.getActiveProfiles());
-		if (activeProfiles.contains(DemoConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(DemoConstants.SPRING_PROFILE_PRODUCTION)) {
+		if (activeProfiles.contains(ProfileConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(ProfileConstants.SPRING_PROFILE_PRODUCTION)) {
 			log.error("You have misconfigured your application! It should not run " +
 					"with both the 'dev' and 'prod' profiles at the same time.");
 		}
-		if (activeProfiles.contains(DemoConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(DemoConstants.SPRING_PROFILE_CLOUD)) {
+		if (activeProfiles.contains(ProfileConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(ProfileConstants.SPRING_PROFILE_CLOUD)) {
 			log.error("You have misconfigured your application! It should not " +
 					"run with both the 'dev' and 'cloud' profiles at the same time.");
 		}
