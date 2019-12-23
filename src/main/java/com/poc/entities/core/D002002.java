@@ -25,8 +25,8 @@ public class D002002 implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @NotNull(message = "Role description is mandatory")
-    @Size(min = 1,max = 30,message = "Role Description Should Be Min 1 Max 30")
+	@NotNull(message = "Role Description Is Mandatory")
+    @Size(min = 1,max = 30,message = "Role Description Should Be Min 1 And Max 30")
     @Column(name = "role_desc",length = 30)
     private String roleDesc;
 }

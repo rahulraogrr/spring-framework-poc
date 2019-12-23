@@ -1,5 +1,6 @@
 package com.poc.framework;
 
+import com.poc.framework.exceptions.InvalidFieldException;
 import com.poc.framework.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,18 @@ public class GlobalExceptionHandler {
                    e.getZonedDateTime(),
                    request.getRequestURI(),
                    e.getMessage()), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(InvalidFieldException.class)
+    public ResponseEntity<ApiErrorResponse> handleException(
+            final InvalidFieldException e,
+            final HttpServletRequest request
+    ){
+        return new ResponseEntity<>(new ApiErrorResponse(
+                e.getId(),
+                e.getZonedDateTime(),
+                request.getRequestURI(),
+                e.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)

@@ -60,11 +60,11 @@ implements InitializingBean{
 		} catch (UnknownHostException e) {
 			log.warn("The host name could not be determined, using `localhost` as fallback");
 		}
-		log.info("\n----------------------------------------------------------\n\t" +
-				"Application '{}' is running! Access URLs:\n\t" +
+		log.info("\n------------------------------------------------------------------------------\n\t" +
+				"Application: '{}' is running! Access URLs:\n\t" +
 				"Local: \t\t{}://localhost:{}{}\n\t" +
 				"External: \t{}://{}:{}{}\n\t" +
-				"Profile(s): \t{}\n----------------------------------------------------------",
+				"Profile(s): \t{}\n------------------------------------------------------------------------------",
 				environment.getProperty("spring.application.name"),
 				protocol,
 				serverPort,
