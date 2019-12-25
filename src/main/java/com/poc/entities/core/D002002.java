@@ -19,11 +19,12 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class D002002 implements Serializable {
 
-	private static final long serialVersionUID = -1865568147795614392L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = SequenceGenConstants.D002002_SEQUENCE_GENERATOR)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = SequenceGenConstants.D002002_SEQUENCE_GENERATOR)
     @SequenceGenerator(name = SequenceGenConstants.D002002_SEQUENCE_GENERATOR,
     sequenceName = SequenceGenConstants.D002002_SEQUENCE_GENERATOR,
     allocationSize = SequenceGenConstants.D002002_SEQ_ALLOCATION_SIZE)

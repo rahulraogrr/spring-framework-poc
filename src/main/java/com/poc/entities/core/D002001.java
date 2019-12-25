@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.Instant;
 
 @Entity
@@ -17,9 +18,13 @@ import java.time.Instant;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class D002001 {
+public class D002001 implements Serializable {
+
+    public static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = SequenceGenConstants.D002001_SEQUENCE_GENERATOR)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = SequenceGenConstants.D002001_SEQUENCE_GENERATOR)
     @SequenceGenerator(name = SequenceGenConstants.D002001_SEQUENCE_GENERATOR,
             sequenceName = SequenceGenConstants.D002001_SEQUENCE_GENERATOR,
             allocationSize = SequenceGenConstants.D002001_SEQ_ALLOCATION_SIZE)
