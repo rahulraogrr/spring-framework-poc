@@ -1,10 +1,12 @@
 package com.poc.entities.core;
 
 import com.poc.constants.SequenceGenConstants;
+import com.poc.constants.enumerations.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -12,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Date;
 
 @Entity
 @Table(name = "D002001")
@@ -28,8 +31,8 @@ public class D002001 implements Serializable {
     @SequenceGenerator(name = SequenceGenConstants.D002001_SEQUENCE_GENERATOR,
             sequenceName = SequenceGenConstants.D002001_SEQUENCE_GENERATOR,
             allocationSize = SequenceGenConstants.D002001_SEQ_ALLOCATION_SIZE)
-    @Column(name = "id",nullable = false)
-    private Long id;
+    @Column(name = "id")
+    private long id;
 
     @NotNull
     @Size(min = 1,max = 50)
@@ -58,12 +61,11 @@ public class D002001 implements Serializable {
     @Column(name = "email",length = 254,unique = true)
     private String email;
 
-    @Size(min = 1,max = 1)
-    @Column(name = "gender_id",length = 1)
-    private int genderId;
+    @Column(name = "gender_id")
+    private Gender genderId;
 
     @Column(name = "date_of_birth")
-    private Instant dob;
+    private Date dob;
 
     @Size(max = 256)
     @Column(name = "image_url",length = 256)
@@ -72,28 +74,24 @@ public class D002001 implements Serializable {
     @Column(name = "lang_key")
     private String langKey;
 
+    @Type(type = "numeric_boolean")
     @Column(name = "is_account_non_expired")
     private boolean accountNonExpired;
 
+    @Type(type = "numeric_boolean")
     @Column(name = "is_account_non_locked")
     private boolean accountNonLocked;
 
+    @Type(type = "numeric_boolean")
     @Column(name = "is_credentials_non_expired")
     private boolean credentialsNonExpired;
 
+    @Type(type = "numeric_boolean")
     @Column(name = "is_enabled")
     private boolean enabled;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof D002001)) {
-            return false;
-        }
-        return id != null && id.equals(((D002001) o).id);
-    }
+    @Column(name = "status")
+    private int status;
 
     @Override
     public int hashCode() {
