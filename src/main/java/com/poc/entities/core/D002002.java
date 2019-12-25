@@ -1,5 +1,6 @@
 package com.poc.entities.core;
 
+import com.poc.constants.SequenceGenConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,10 @@ public class D002002 implements Serializable {
 
 	@Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = SequenceGenConstants.D002002_SEQUENCE_GENERATOR)
+    @SequenceGenerator(name = SequenceGenConstants.D002002_SEQUENCE_GENERATOR,
+    sequenceName = SequenceGenConstants.D002002_SEQUENCE_GENERATOR,
+    allocationSize = SequenceGenConstants.D002002_SEQ_ALLOCATION_SIZE)
     private int id;
 
 	@NotNull(message = "Role Description Is Mandatory")

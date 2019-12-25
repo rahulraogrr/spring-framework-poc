@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api")
-@Api(tags = "Roles",value = "Role Controller")
+@Api(tags = "Roles")
 public class D002002Controller {
 
     @Autowired
