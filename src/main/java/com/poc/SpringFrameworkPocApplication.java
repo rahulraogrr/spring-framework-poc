@@ -85,13 +85,23 @@ implements InitializingBean{
 	@Override
 	public void afterPropertiesSet(){
 		Collection<String> activeProfiles = Arrays.asList(environment.getActiveProfiles());
-		if (activeProfiles.contains(ProfileConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(ProfileConstants.SPRING_PROFILE_PRODUCTION)) {
-			log.error("You have misconfigured your application! It should not run " +
-					"with both the 'dev' and 'prod' profiles at the same time.");
+		if (activeProfiles.contains(ProfileConstants.SPRING_PROFILE_DEVELOPMENT) &&
+				activeProfiles.contains(ProfileConstants.SPRING_PROFILE_PRODUCTION)) {
+			log.error("You have mis-configured your application! It should not run " +
+					"with both the '"+ProfileConstants.SPRING_PROFILE_DEVELOPMENT+"' " +
+					"and '"+ProfileConstants.SPRING_PROFILE_PRODUCTION+"' profiles at the same time.");
 		}
-		if (activeProfiles.contains(ProfileConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(ProfileConstants.SPRING_PROFILE_CLOUD)) {
-			log.error("You have misconfigured your application! It should not " +
-					"run with both the 'dev' and 'cloud' profiles at the same time.");
+		if (activeProfiles.contains(ProfileConstants.SPRING_PROFILE_DEVELOPMENT) &&
+				activeProfiles.contains(ProfileConstants.SPRING_PROFILE_CLOUD)) {
+			log.error("You have mis-configured your application! It should not " +
+					"run with both the '"+ProfileConstants.SPRING_PROFILE_DEVELOPMENT+"' " +
+					"and '"+ProfileConstants.SPRING_PROFILE_CLOUD+"' profiles at the same time.");
+		}
+		if (activeProfiles.contains(ProfileConstants.SPRING_PROFILE_PRODUCTION) &&
+				activeProfiles.contains(ProfileConstants.SPRING_PROFILE_SWAGGER)) {
+			log.error("You have mis-configured your application! It should not " +
+					"run with both the '"+ProfileConstants.SPRING_PROFILE_PRODUCTION+"' " +
+					"and '"+ProfileConstants.SPRING_PROFILE_SWAGGER+"' profiles at the same time.");
 		}
 	}
 
