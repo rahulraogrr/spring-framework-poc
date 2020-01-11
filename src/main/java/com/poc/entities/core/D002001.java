@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -13,7 +14,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Date;
 
 @Entity
@@ -96,5 +96,33 @@ public class D002001 implements Serializable {
     @Override
     public int hashCode() {
         return 31;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        D002001 d002001 = (D002001) o;
+
+        return new EqualsBuilder()
+                .append(getId(), d002001.getId())
+                .append(isAccountNonExpired(), d002001.isAccountNonExpired())
+                .append(isAccountNonLocked(), d002001.isAccountNonLocked())
+                .append(isCredentialsNonExpired(), d002001.isCredentialsNonExpired())
+                .append(isEnabled(), d002001.isEnabled())
+                .append(getStatus(), d002001.getStatus())
+                .append(getUsername(), d002001.getUsername())
+                .append(getPasswordHash(), d002001.getPasswordHash())
+                .append(getFirstName(), d002001.getFirstName())
+                .append(getMiddleName(), d002001.getMiddleName())
+                .append(getLastName(), d002001.getLastName())
+                .append(getEmail(), d002001.getEmail())
+                .append(getGenderId(), d002001.getGenderId())
+                .append(getDob(), d002001.getDob())
+                .append(getImageUrl(), d002001.getImageUrl())
+                .append(getLangKey(), d002001.getLangKey())
+                .isEquals();
     }
 }

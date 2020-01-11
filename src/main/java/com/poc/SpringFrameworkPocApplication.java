@@ -24,6 +24,13 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * <p>Bootstrap Spring Boot Application</p>
+ *
+ * @version 1.0.0
+ * @since 1.0.0
+ * @author Rahul Rao Gonda
+ */
 @SpringBootApplication
 @EnableSwagger2
 @CrossOrigin(origins = "*")
@@ -79,7 +86,8 @@ implements InitializingBean{
 	/**
 	 * Initializes SpringFrameworkPocApplication.
 	 * <p>
-	 * Spring profiles can be configured with a program argument --spring.profiles.active=your-active-profile
+	 * Spring profiles can be configured with a program argument
+	 * --spring.profiles.active=your-active-profile
 	 * <p>
 	 */
 	@Override
