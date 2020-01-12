@@ -45,12 +45,21 @@ implements InitializingBean{
 		this.environment=environment;
 	}
 
+	/**
+	 * <p>Main Method</p>
+	 * @param args {@link String} Array
+	 */
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(SpringFrameworkPocApplication.class);
 		Environment environment = app.run(args).getEnvironment();
 		logApplicationStartup(environment);
 	}
 
+	/**
+	 * <p>Load Application Start-Up</p>
+	 * @since 1.0.0
+	 * @param environment {@link Environment}
+	 */
 	private static void logApplicationStartup(Environment environment) {
 		String protocol = "http";
 		if (environment.getProperty("server.ssl.key-store") != null) {

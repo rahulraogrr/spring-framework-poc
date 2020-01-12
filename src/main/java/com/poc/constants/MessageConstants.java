@@ -1,10 +1,11 @@
 package com.poc.constants;
 
 /**
- * Message Constants
+ * <p>Message Constants</p>
  *
- * @since 1.0.0
  * @author Rahul Rao Gonda
+ * @since 1.0.0
+ * @version 1.0.0
  */
 public final class MessageConstants {
 	/**
@@ -20,11 +21,11 @@ public final class MessageConstants {
 	 */
 	public static final String RESOURCE_DELETE_SUCCESS = "Resource Deleted Successfully";
 	/**
-	 * Message Separate
+	 * Used To Separate Messages
 	 */
 	public static final String MESSAGE_SEPARATE = "~";
 	/**
-	 * To be used to create a new resource
+	 * To be used to when resource created
 	 */
 	public static final String RESOURCE_CREATE_SUCCESS = "Resource Created Successfully";
 	/**

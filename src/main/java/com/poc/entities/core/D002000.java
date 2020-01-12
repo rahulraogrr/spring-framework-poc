@@ -16,7 +16,6 @@ import java.io.Serializable;
  * <p>Tenant Table - This table is created to achieve
  * Software As A Service(SaaS) Model</p>
  *
- * @since 1.0.0
  * @author Rahul Rao Gonda
  */
 @Entity

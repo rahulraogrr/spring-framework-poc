@@ -1,10 +1,11 @@
 package com.poc.constants;
 
 /**
- * Application Global Constants
+ * <p>Application Global Constants</p>
  *
- * @since 1.0.0
  * @author Rahul Rao Gonda
+ * @since 1.0.0
+ * @version 1.0.0
  */
 public final class Constants {
 	public static final String LOGIN_REGEX="^[_.@A-Za-z0-9-]*$";

@@ -13,6 +13,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * <p>Tenant Controller</p>
+ *
+ * @author Rahul Rao Gonda
+ */
 @RestController
 @RequestMapping("secure")
 @Api(tags = "Tenant Master")

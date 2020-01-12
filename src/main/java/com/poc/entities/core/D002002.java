@@ -12,6 +12,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * <p>Roles Entity</p>
+ *
+ * @author Rahul Rao Gonda
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @Entity
 @Table(name = "D002002")
 @Getter @Setter

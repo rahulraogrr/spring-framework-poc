@@ -1,9 +1,11 @@
 package com.poc.constants;
 
 /**
- * SequenceGenConstants
+ * <p>SequenceGenConstants</p>
+ *
  * @author Rahul Rao Gonda
  * @since 1.0.0
+ * @version 1.0.0
  */
 public final class SequenceGenConstants {
     public static final String D002002_SEQUENCE_GENERATOR = "D002002_SEQ_GEN";

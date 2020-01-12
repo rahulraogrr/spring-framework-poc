@@ -13,6 +13,13 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * <p>User Controller</p>
+ *
+ * @author Rahul Rao Gonda
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("api")
 @Api(tags = "User Master")

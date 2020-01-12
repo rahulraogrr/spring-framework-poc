@@ -16,6 +16,13 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * <p>User Entity</p>
+ *
+ * @author Rahul Rao Gonda
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @Entity
 @Table(name = "D002001")
 @Getter @Setter

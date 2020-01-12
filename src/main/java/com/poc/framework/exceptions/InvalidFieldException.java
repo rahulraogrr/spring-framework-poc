@@ -5,6 +5,13 @@ import lombok.Getter;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 
+/**
+ * <p>Invalid Field Exception</p>
+ *
+ * @author Rahul Rao Gonda
+ * @since 1.0.0
+ * @version 1.0.0
+ */
 @SuppressWarnings("serial")
 @Getter
 public class InvalidFieldException extends RuntimeException implements Serializable {
