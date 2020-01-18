@@ -13,8 +13,9 @@ import java.time.ZonedDateTime;
  * @version 1.0.0
  */
 @Getter
-public class ResourceNotFoundException extends RuntimeException implements Serializable {
-	private static final long serialVersionUID = -3755354764861619212L;
+public class ResourceNotFoundException
+        extends RuntimeException implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	private final transient Object id;
     private final ZonedDateTime zonedDateTime;

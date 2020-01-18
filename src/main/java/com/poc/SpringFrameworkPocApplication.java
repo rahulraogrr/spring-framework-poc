@@ -33,7 +33,7 @@ import java.util.Collections;
  */
 @SpringBootApplication
 @EnableSwagger2
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class SpringFrameworkPocApplication
 implements InitializingBean{
 

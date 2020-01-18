@@ -14,8 +14,9 @@ import java.time.ZonedDateTime;
  */
 @SuppressWarnings("serial")
 @Getter
-public class InvalidFieldException extends RuntimeException implements Serializable {
-	private static final long serialVersionUID = 1072496018977194715L;
+public class InvalidFieldException
+        extends RuntimeException implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private final transient Object id;
     private final ZonedDateTime zonedDateTime;
