@@ -51,7 +51,7 @@ public class D002001Service {
         D002001 modifyD002001 = d002001Validate.get();
 
         modifyD002001.setUsername(d002001.getUsername());
-        modifyD002001.setPasswordHash(d002001.getPasswordHash());
+        modifyD002001.setPassword(d002001.getPassword());
         modifyD002001.setFirstName(d002001.getFirstName());
         modifyD002001.setMiddleName(d002001.getMiddleName());
         modifyD002001.setLastName(d002001.getLastName());
