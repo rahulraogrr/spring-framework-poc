@@ -1,7 +1,7 @@
 package com.poc.constants;
 
 /**
- * <p>Application Global Constants</p>
+ * <p>Global Constants</p>
  *
  * @author Rahul Rao Gonda
  * @since 1.0.0

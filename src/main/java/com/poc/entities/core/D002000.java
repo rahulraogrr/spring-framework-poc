@@ -1,5 +1,6 @@
 package com.poc.entities.core;
 
+import com.poc.constants.AppConstants;
 import com.poc.constants.SequenceGenConstants;
 import com.poc.constants.enumerations.Database;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class D002000 implements Serializable {
 
-    public static final long serialVersionUID = 1L;
+    public static final long serialVersionUID = AppConstants.SERIAL_VERSION_UID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,

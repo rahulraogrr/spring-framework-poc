@@ -1,5 +1,6 @@
 package com.poc.entities.core;
 
+import com.poc.constants.AppConstants;
 import com.poc.constants.SequenceGenConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class D002002 implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = AppConstants.SERIAL_VERSION_UID;
 
 	@Id
     @Column(name = "id")

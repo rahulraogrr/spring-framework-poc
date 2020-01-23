@@ -1,11 +1,9 @@
 package com.poc.entities.core;
 
+import com.poc.constants.AppConstants;
 import com.poc.constants.SequenceGenConstants;
 import com.poc.constants.enumerations.Gender;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.annotations.Type;
 
@@ -25,12 +23,10 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "D002001")
-@Getter @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class D002001 implements Serializable {
 
-    public static final long serialVersionUID = 1L;
+    public static final long serialVersionUID = AppConstants.SERIAL_VERSION_UID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
@@ -48,8 +44,8 @@ public class D002001 implements Serializable {
 
     @NotNull
     @Size(min = 8,max = 100)
-    @Column(name = "password_hash",nullable = false,length = 100)
-    private String passwordHash;
+    @Column(name = "password",nullable = false,length = 100)
+    private String password;
 
     @Size(max = 100)
     @Column(name = "first_name",length = 100)
@@ -121,7 +117,7 @@ public class D002001 implements Serializable {
                 .append(isEnabled(), d002001.isEnabled())
                 .append(getStatus(), d002001.getStatus())
                 .append(getUsername(), d002001.getUsername())
-                .append(getPasswordHash(), d002001.getPasswordHash())
+                .append(getPassword(), d002001.getPassword())
                 .append(getFirstName(), d002001.getFirstName())
                 .append(getMiddleName(), d002001.getMiddleName())
                 .append(getLastName(), d002001.getLastName())
