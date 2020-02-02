@@ -101,6 +101,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>spring-poc</finalName>
 	</build>
 
 	<repositories>

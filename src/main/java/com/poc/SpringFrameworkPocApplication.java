@@ -27,6 +27,9 @@ import java.util.Collections;
 /**
  * <p>Bootstrap Spring Boot Application</p>
  *
+ * docker build -f Dockerfile -t spring-poc .
+ * docker run -p 8085:8085 spring-poc
+ *
  * @version 1.0.0
  * @since 1.0.0
  * @author Rahul Rao Gonda
