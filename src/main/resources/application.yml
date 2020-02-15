@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: dockerpostgres
   application:
     name: Demo Application With Spring Boot
     admin:
