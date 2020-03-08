@@ -6,6 +6,10 @@ import com.poc.framework.exceptions.ResourceNotFoundException;
 import java.time.ZonedDateTime;
 import java.util.function.IntConsumer;
 
+/**
+ * @author Rahul Rao Gonda
+ * @version 1.0.0
+ */
 public class ExceptionUtil {
 
     public static final IntConsumer throwResourceNotFoundException = id -> {
