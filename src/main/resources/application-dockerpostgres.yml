@@ -12,7 +12,7 @@ spring:
   datasource: ##Datasource Properties
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/demo?createDatabaseIfNotExist=true
+    url: jdbc:postgresql://localhost:5432/demo?createDatabaseIfNotExist=true
     username: postgres
     password: password
     hikari:

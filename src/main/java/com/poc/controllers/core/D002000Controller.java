@@ -28,17 +28,19 @@ public class D002000Controller {
 
     @GetMapping("tenant")
     public ResponseEntity<List<D002000>> browse(){
-        return new ResponseEntity<>(d002000Service.browse(), HttpStatus.OK);
+        return new ResponseEntity<>(D002000Service.browse.get(),
+                HttpStatus.OK);
     }
 
     @GetMapping("tenant/{id}")
     public ResponseEntity<D002000> browseById(@PathVariable int id){
-        return new ResponseEntity<>(d002000Service.browseById(id),HttpStatus.OK);
+        return new ResponseEntity<>(d002000Service.browseById.apply(id),
+                HttpStatus.OK);
     }
 
     @PostMapping("tenant")
     public ResponseEntity<String> create(@Valid @RequestBody D002000 d002000){
-        D002000 d002000Created = d002000Service.create(d002000);
+        D002000 d002000Created = d002000Service.create.apply(d002000);
         return ResponseEntity.created(ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
@@ -49,7 +51,7 @@ public class D002000Controller {
     @PutMapping("tenant/{id}")
     public ResponseEntity<String> modify(@PathVariable int id,
                                          @Valid @RequestBody D002000 d002000){
-        D002000 d002000modified = d002000Service.modify(id,d002000);
+        D002000 d002000modified = d002000Service.modify.apply(id,d002000);
         return new ResponseEntity<>(MessageConstants.RESOURCE_MODIFY_SUCCESS+
                 MessageConstants.MESSAGE_SEPARATE+d002000modified.getId(),
                 HttpStatus.OK);
@@ -57,7 +59,7 @@ public class D002000Controller {
 
     @DeleteMapping("tenant/{id}")
     public ResponseEntity<String> deleteById(@PathVariable int id){
-        d002000Service.deleteById(id);
+        d002000Service.deleteById.accept(id);
         return new ResponseEntity<>(MessageConstants.RESOURCE_DELETE_SUCCESS,
                 HttpStatus.OK);
     }
