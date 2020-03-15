@@ -2,10 +2,7 @@ package com.poc.entities.core;
 
 import com.poc.constants.AppConstants;
 import com.poc.constants.SequenceGenConstants;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -22,9 +19,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "D002002")
-@Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class D002002 implements Serializable {
 
 	private static final long serialVersionUID = AppConstants.SERIAL_VERSION_UID;

@@ -3,10 +3,7 @@ package com.poc.entities.core;
 import com.poc.constants.AppConstants;
 import com.poc.constants.SequenceGenConstants;
 import com.poc.constants.enumerations.Database;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -21,12 +18,11 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "D002000")
-@Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class D002000 implements Serializable {
 
-    public static final long serialVersionUID = AppConstants.SERIAL_VERSION_UID;
+    public static final long serialVersionUID =
+            AppConstants.SERIAL_VERSION_UID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
@@ -35,14 +31,14 @@ public class D002000 implements Serializable {
     sequenceName = SequenceGenConstants.D002000_SEQUENCE_GENERATOR)
     private int id;
 
-    @Column(name = "database")
+    @Column(name = "db")
     private Database database;
 
-    @Column(name = "database_name",unique = true)
+    @Column(name = "db_name",unique = true)
     private String databaseName;
 
     @Size(min = 1,max = 20)
-    @Column(name = "database_version",length = 20)
+    @Column(name = "db_version",length = 20)
     private String databaseVersion;
 
     @Column(name = "schema_name")

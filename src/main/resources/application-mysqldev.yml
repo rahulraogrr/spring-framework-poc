@@ -1,0 +1,49 @@
+##Spring Properties
+spring:
+  liquibase: ##Liquibase Properties
+    enabled: false
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    user: postgres
+    password:
+    drop-first: true
+    database-change-log-lock-table: DATABASECHANGELOGLOCK
+    database-change-log-table: DATABASECHANGELOG
+    test-rollback-on-update: false
+  datasource: ##Datasource Properties
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/poc
+    username: root
+    password: 06Devapur@ts
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa: ##JPA Properties
+    database: mysql
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        generate_statistics: false
+    open-in-view: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+##Logging Properties
+logging:
+  level:
+    liquibase: info
+    sql: info
+    root: info
+    web: info
+
+##Server Configuration
+server:
+  port: 8080
