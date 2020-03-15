@@ -3,7 +3,7 @@ package com.poc.entities.core;
 import com.poc.constants.AppConstants;
 import com.poc.constants.SequenceGenConstants;
 import com.poc.constants.enumerations.Database;
-import lombok.*;
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;

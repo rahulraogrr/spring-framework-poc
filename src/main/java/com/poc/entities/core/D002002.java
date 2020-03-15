@@ -2,7 +2,7 @@ package com.poc.entities.core;
 
 import com.poc.constants.AppConstants;
 import com.poc.constants.SequenceGenConstants;
-import lombok.*;
+import lombok.Data;
 
 import java.io.Serializable;
 
