@@ -21,7 +21,7 @@ import java.util.List;
  * @version 1.0.0
  */
 @RestController
-@RequestMapping("api")
+@RequestMapping("api/v1")
 @Api(tags = "User Master")
 public class D002001Controller {
 

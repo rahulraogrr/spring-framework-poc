@@ -7,7 +7,13 @@ import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -39,7 +45,8 @@ public class D002001 implements Serializable {
 
     @NotNull
     @Size(min = 1,max = 50)
-    @Column(name = "username",unique = true,nullable = false,length = 50)
+    @Column(name = "username",unique = true,
+            nullable = false,length = 50)
     private String username;
 
     @NotNull
@@ -48,7 +55,7 @@ public class D002001 implements Serializable {
     private String password;
 
     @Size(max = 100)
-    @Column(name = "first_name",length = 100)
+    @Column(name = "first_name",length = 100,nullable = false)
     private String firstName;
 
     @Size(max = 100)
@@ -61,14 +68,15 @@ public class D002001 implements Serializable {
 
     @Size(min = 10,max = 254)
     @Email
-    @Column(name = "email",length = 254,unique = true)
+    @Column(name = "email",length = 254,unique = true,
+    nullable = false)
     private String email;
 
-    @Column(name = "gender_id")
+    @Column(name = "gender_id",nullable = false)
     private Gender genderId;
 
     @Column(name = "date_of_birth")
-    private Date dob;
+    private Date dateOfBirth;
 
     @Size(max = 256)
     @Column(name = "image_url",length = 256)
@@ -123,7 +131,7 @@ public class D002001 implements Serializable {
                 .append(getLastName(), d002001.getLastName())
                 .append(getEmail(), d002001.getEmail())
                 .append(getGenderId(), d002001.getGenderId())
-                .append(getDob(), d002001.getDob())
+                .append(getDateOfBirth(), d002001.getDateOfBirth())
                 .append(getImageUrl(), d002001.getImageUrl())
                 .append(getLangKey(), d002001.getLangKey())
                 .isEquals();

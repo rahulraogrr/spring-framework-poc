@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.IntFunction;
+
+import static com.poc.utils.ExceptionUtil.getResourceNotFoundException;
 
 /**
  * <p>Roles Service</p>
@@ -39,13 +42,15 @@ public class D002002Service {
      * @return {@link D002002}
      */
     public D002002 browseById(int id) {
-        Optional<D002002> d002002 = d002002Repository.findById(id);
+        /*Optional<D002002> d002002 = d002002Repository.findById(id);
         if(d002002.isEmpty()){
             throw new ResourceNotFoundException(id,
                     ZonedDateTime.now(),
                     MessageConstants.RESOURCE_NOT_FOUND);
-        }
-        return d002002.get();
+        }*/
+        return validateAndGetRecord
+                .apply(id)
+                .get();
     }
 
     /**
@@ -83,4 +88,11 @@ public class D002002Service {
     public void deleteById(int id) {
         d002002Repository.deleteById(id);
     }
+
+    public final IntFunction<Optional<D002002>>
+            validateAndGetRecord = id ->
+            Optional.ofNullable(d002002Repository
+                    .findById(id)
+                    .orElseThrow(getResourceNotFoundException(id))
+            );
 }

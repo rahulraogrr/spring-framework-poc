@@ -5,6 +5,7 @@ import com.poc.entities.core.D002002;
 import com.poc.services.core.D002002Service;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.BiFunction;
 
 /**
  * <p>Roles Controller</p>
@@ -21,7 +24,7 @@ import java.util.List;
  * @version 1.0.0
  */
 @RestController
-@RequestMapping("api")
+@RequestMapping("api/v1")
 @Api(tags = "Role Master")
 public class D002002Controller {
 
@@ -63,4 +66,5 @@ public class D002002Controller {
         return new ResponseEntity<>(MessageConstants.RESOURCE_DELETE_SUCCESS,
                 HttpStatus.OK);
     }
+
 }

@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
             final ResourceNotFoundException e,
             final HttpServletRequest request){
            return new ResponseEntity<>(new ApiErrorResponse(
-                   e.getId(),
+                   e.getId().toString(),
                    e.getZonedDateTime(),
                    request.getRequestURI(),
                    e.getMessage()), HttpStatus.NOT_FOUND);
@@ -54,7 +54,7 @@ public class GlobalExceptionHandler {
             final HttpServletRequest request
     ){
         return new ResponseEntity<>(new ApiErrorResponse(
-                e.getId(),
+                e.getId().toString(),
                 e.getZonedDateTime(),
                 request.getRequestURI(),
                 e.getMessage()), HttpStatus.BAD_REQUEST);
@@ -73,7 +73,7 @@ public class GlobalExceptionHandler {
             final Exception e,
             final HttpServletRequest request){
         return new ResponseEntity<>(new ApiErrorResponse(
-                "",
+                "-1",
                 ZonedDateTime.now(),
                 request.getRequestURI(),
                 e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);

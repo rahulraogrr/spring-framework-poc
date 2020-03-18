@@ -19,7 +19,7 @@ import java.util.List;
  * @author Rahul Rao Gonda
  */
 @RestController
-@RequestMapping("secure")
+@RequestMapping("api/v1")
 @Api(tags = "Tenant Master")
 public class D002000Controller {
 

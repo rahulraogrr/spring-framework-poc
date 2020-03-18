@@ -31,7 +31,7 @@ spring:
         generate_statistics: false
 
 server:
-  port: 8085
+  port: 8090
 
 logging:
   level:

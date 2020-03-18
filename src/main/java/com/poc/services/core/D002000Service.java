@@ -22,17 +22,17 @@ public class D002000Service {
 
     public static final Supplier<List<D002000>> browse = () -> d002000Repository.findAll();
 
-    public IntFunction<D002000> browseById = id -> {
+    public final IntFunction<D002000> browseById = id -> {
                 Optional<D002000> d002000Validate = validateRecord.apply(id);
                 if(d002000Validate.isEmpty())
                     ExceptionUtil.throwResourceNotFoundException.accept(id);
                 return d002000Validate.get();
             };
 
-    public Function<D002000,D002000> create =
+    public final Function<D002000,D002000> create =
             d002000 -> d002000Repository.save(d002000);
 
-    public BiFunction<Integer,D002000,D002000> modify = (id,d002000) -> {
+    public final BiFunction<Integer,D002000,D002000> modify = (id,d002000) -> {
         Optional<D002000> d002000Validate = validateRecord.apply(id);
         if(d002000Validate.isEmpty())
             ExceptionUtil.throwResourceNotFoundException.accept(id);
@@ -51,7 +51,7 @@ public class D002000Service {
         return modifyD002000;
     };
 
-    public IntConsumer deleteById = id -> {
+    public final IntConsumer deleteById = id -> {
         Optional<D002000> d002000Validate = validateRecord.apply(id);
         if(d002000Validate.isEmpty())
             ExceptionUtil.throwResourceNotFoundException.accept(id);
@@ -60,6 +60,6 @@ public class D002000Service {
                 d002000Repository.deleteById(d002000.getId()));
     };
 
-    static IntFunction<Optional<D002000>> validateRecord = id
+    static final IntFunction<Optional<D002000>> validateRecord = id
             -> d002000Repository.findById(id);
 }
