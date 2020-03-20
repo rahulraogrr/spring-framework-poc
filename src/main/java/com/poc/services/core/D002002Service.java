@@ -1,13 +1,10 @@
 package com.poc.services.core;
 
-import com.poc.constants.MessageConstants;
 import com.poc.entities.core.D002002;
-import com.poc.framework.exceptions.ResourceNotFoundException;
 import com.poc.repositories.core.D002002Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.IntFunction;
@@ -28,8 +25,7 @@ public class D002002Service {
     private D002002Repository d002002Repository;
 
     /**
-     * <p>Returns List of {@link D002002}</p>
-     *
+     * <p>Returns List of {@link D002002} table records</p>
      * @return List of {@link D002002}
      */
     public List<D002002> browse() {
@@ -42,15 +38,7 @@ public class D002002Service {
      * @return {@link D002002}
      */
     public D002002 browseById(int id) {
-        /*Optional<D002002> d002002 = d002002Repository.findById(id);
-        if(d002002.isEmpty()){
-            throw new ResourceNotFoundException(id,
-                    ZonedDateTime.now(),
-                    MessageConstants.RESOURCE_NOT_FOUND);
-        }*/
-        return validateAndGetRecord
-                .apply(id)
-                .get();
+        return validateAndGetRecord.apply(id).get();
     }
 
     /**
@@ -69,12 +57,7 @@ public class D002002Service {
      * @return {@link D002002}
      */
     public D002002 modify(int id, D002002 d002002) {
-        Optional<D002002> d002002Validate = d002002Repository.findById(id);
-        if(d002002Validate.isEmpty()){
-            throw new ResourceNotFoundException(id,
-                    ZonedDateTime.now(),
-                    MessageConstants.RESOURCE_NOT_FOUND);
-        }
+        Optional<D002002> d002002Validate = validateAndGetRecord.apply(id);
         D002002 modifyD002002 = d002002Validate.get();
         modifyD002002.setRoleDesc(d002002.getRoleDesc());
         modifyD002002 = d002002Repository.save(modifyD002002);
@@ -86,10 +69,11 @@ public class D002002Service {
      * @param id Role Id
      */
     public void deleteById(int id) {
-        d002002Repository.deleteById(id);
+        if (validateAndGetRecord.apply(id).isPresent())
+            d002002Repository.deleteById(id);
     }
 
-    public final IntFunction<Optional<D002002>>
+    private final IntFunction<Optional<D002002>>
             validateAndGetRecord = id ->
             Optional.ofNullable(d002002Repository
                     .findById(id)

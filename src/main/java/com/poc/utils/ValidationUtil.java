@@ -7,11 +7,17 @@ import java.util.function.BiFunction;
 
 import static com.poc.utils.ExceptionUtil.getResourceNotFoundException;
 
-public class ValidationUtil {
+public final class ValidationUtil {
 
-    /*public static final BiFunction<Object, JpaRepository, Optional<?>>
-            validateAndGetRecord = (id, repository) ->
-                        Optional.ofNullable(repository
-                                .findById(id)
-            );*/
+    public static final BiFunction<? super Object ,
+            JpaRepository<? super Object,? super Object>,
+            Optional<? super Object>>
+            validateAndGetRecord = (id,jpaRepository) ->
+            Optional.ofNullable(
+                    jpaRepository
+                            .findById(id)
+                            .orElseThrow(getResourceNotFoundException(id))
+            );
+
+    private ValidationUtil(){}
 }
